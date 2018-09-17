@@ -15,4 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('tasks', 'TasksController');
+
+Route::get('/tasks', 'TasksController@index');
+Route::delete('/tasks/{id}', 'TasksController@destroy');
+Route::post('tasks/create', 'TasksController@create');

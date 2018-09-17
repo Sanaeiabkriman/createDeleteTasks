@@ -23,9 +23,13 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $tasks = new Task;
+        $tasks->Description=$request->Description;
+        $tasks->save();
+        return redirect('tasks');
+
     }
 
     /**
@@ -79,11 +83,10 @@ class TasksController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy($id)
     {
-        Schema::table('tasks', function ($table) {
-            $table->softDeletes();
-        });
-
+        $tasks = \App\Task::find($id);
+        $tasks->delete();
+        return redirect ('tasks');
     }
 }
