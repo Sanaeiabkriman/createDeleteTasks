@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
+use App\Post;
 use Illuminate\Http\Request;
 
-class TasksController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.index')->with('tasks',$tasks);
+        //
     }
 
     /**
@@ -23,13 +22,9 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $tasks = new Task;
-        $tasks->Description=$request->Description;
-        $tasks->save();
-        return redirect('tasks');
-
+        //
     }
 
     /**
@@ -46,10 +41,10 @@ class TasksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show(Post $post)
     {
         //
     }
@@ -57,10 +52,10 @@ class TasksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(Post $post)
     {
         //
     }
@@ -69,10 +64,10 @@ class TasksController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Task  $task
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -80,13 +75,11 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $tasks = Task::find($id);
-        $tasks->delete();
-        return redirect ('tasks');
+        //
     }
 }

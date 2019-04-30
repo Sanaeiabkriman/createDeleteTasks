@@ -20,6 +20,11 @@
     <h1 class="text-center bg-secondary m-5 p-3">Tâches</h1>
     <section class="row m-5 ">
         <ul class="text-center list-unstyled col-12 ">
+                <form action="tasks/create" method="POST" class="text-white">
+                    @csrf
+                    Nouvelle tâche: <input type="text" name="Description" id="Description" placeholder="create something">
+                    <button class="btn btn-light m-5" type="submit">add</button>
+                </form>
 
             @foreach($tasks as $task)
             <li class="text-center text-white d-flex justify-content-between bg-secondary m-1 p-3 ">
@@ -32,11 +37,7 @@
             </li>
             @endforeach
 
-            <form action="tasks/create" method="POST">
-                @csrf
-                tache: <input type="text" name="Description" id="Description" placeholder="create something">
-                <button type="submit">add</button>
-            </form>
+            
         </ul>
     </section>
 </body>
